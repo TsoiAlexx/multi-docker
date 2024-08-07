@@ -9,20 +9,20 @@ script:
  - docker run -e CI=true mark/react-test npm test
 
 after_success:
- - docker build -t mark/multi-client ./client
- - docker build -t mark/multi-nginx ./nginx
- - docker build -t mark/multi-api ./api
- - docker build -t mark/multi-worker ./worker
+ - docker build -t multi-client ./client
+ - docker build -t multi-nginx ./nginx
+ - docker build -t multi-api ./api
+ - docker build -t multi-worker ./worker
 
  #Log in to the docker CLI
  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
  # Take those images and push them to docker hub
- - docker tag local-image:mark/multi-client new-repo:mark/multi-client
- - docker tag local-image:mark/multi-nginx new-repo:mark/multi-nginx
- - docker tag local-image:mark/multi-api new-repo:mark/multi-api
- - docker tag local-image:mark/multi-worker new-repo:mark/multi-worker
- - docker push new-repo:mark/multi-client
- - docker push new-repo:mark/multi-nginx
- - docker push new-repo:mark/multi-api
- - docker push new-repo:mark/multi-worker
+ - docker tag local-image:multi-client new-repo:mark/multi-client
+ - docker tag local-image:multi-nginx new-repo:mark/multi-nginx
+ - docker tag local-image:multi-api new-repo:mark/multi-api
+ - docker tag local-image:multi-worker new-repo:mark/multi-worker
+ - docker push new-repo:multi-client
+ - docker push new-repo:multi-nginx
+ - docker push new-repo:multi-api
+ - docker push new-repo:multi-worker
