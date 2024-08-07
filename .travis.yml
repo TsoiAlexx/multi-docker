@@ -18,7 +18,11 @@ after_success:
  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
  # Take those images and push them to docker hub
- - docker push mark/multi-client 
- - docker push mark/multi-nginx 
- - docker push mark/multi-api 
- - docker push mark/multi-worker 
+ - docker tag local-image:mark/multi-client new-repo:mark/multi-client
+ - docker tag local-image:mark/multi-nginx new-repo:mark/multi-nginx
+ - docker tag local-image:mark/multi-api new-repo:mark/multi-api
+ - docker tag local-image:mark/multi-worker new-repo:mark/multi-worker
+ - docker push new-repo:mark/multi-client
+ - docker push new-repo:mark/multi-nginx
+ - docker push new-repo:mark/multi-api
+ - docker push new-repo:mark/multi-worker
