@@ -18,7 +18,13 @@ jobs:
       - run: docker build -t mark/multi-server ./server
       - run: docker build -t mark/multi-worker ./worker
 
-      - run: docker push mark/multi-client
-      - run: docker push mark/multi-nginx
-      - run: docker push mark/multi-server
-      - run: docker push mark/multi-worker
+      - run: docker image tag mark/multi-client multi-client
+      - run: docker image tag mark/multi-nginxt multi-nginx
+      - run: docker image tag mark/multi-server multi-server
+      - run: docker image tag mark/multi-worker multi-worker
+
+
+      - run: docker image push multi-client
+      - run: docker image push multi-nginx
+      - run: docker image push multi-server
+      - run: docker image push multi-worker
