@@ -18,15 +18,15 @@ jobs:
       - run: docker build -t mark/react-test -f ./client/Dockerfile.dev ./client
       - run: docker run -e CI=true mark/react-test npm test
 
-      - run: docker build -t mark/multi-client ./client
-      - run: docker build -t mark/multi-nginx ./nginx
-      - run: docker build -t mark/multi-server ./server
-      - run: docker build -t mark/multi-worker ./worker
+      - run: docker build -t tsoialeksei17537/multi-client ./client
+      - run: docker build -t tsoialeksei17537/multi-nginx ./nginx
+      - run: docker build -t tsoialeksei17537/multi-server ./server
+      - run: docker build -t tsoialeksei17537/multi-worker ./worker
 
-      - run: docker image tag mark/multi-client multi-client:latest
-      - run: docker image tag mark/multi-nginx multi-nginx:latest
-      - run: docker image tag mark/multi-server multi-server:latest
-      - run: docker image tag mark/multi-worker multi-worker:latest
+      - run: docker image tag tsoialeksei17537/multi-client multi-client:latest
+      - run: docker image tag tsoialeksei17537/multi-nginx multi-nginx:latest
+      - run: docker image tag tsoialeksei17537/multi-server multi-server:latest
+      - run: docker image tag tsoialeksei17537/multi-worker multi-worker:latest
 
 
       - run: docker image push multi-client:latest
