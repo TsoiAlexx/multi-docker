@@ -29,7 +29,7 @@ jobs:
       - run: docker image tag tsoialeksei17537/multi-worker multi-worker:latest
 
 
-      - run: docker image push multi-client:latest
-      - run: docker image push multi-nginx:latest
-      - run: docker image push multi-server:latest
-      - run: docker image push multi-worker:latest
+      - run: docker push multi-client:latest
+      - run: docker push multi-nginx:latest
+      - run: docker push multi-server:latest
+      - run: docker push multi-worker:latest
